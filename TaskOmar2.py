@@ -30,13 +30,14 @@ ax.set_xlabel("Glass Type")
 ax.set_ylabel("Frequency")
 st.pyplot(eda_fig)
 
-
 # Train-test split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Random Forest
-st.button("Show Random Forest Results")
-if st.button:
+if st.button("Show Random Forest Results"):
+    # Clear previous plots
+    plt.clf()
+    
     rf_classifier = RandomForestClassifier(random_state=42)
     rf_classifier.fit(X_train, y_train.values.ravel())
     y_pred_rf = rf_classifier.predict(X_test)
@@ -50,8 +51,10 @@ if st.button:
     st.pyplot(sns.heatmap(conf_matrix_rf, annot=True, fmt='d', cmap='Blues').figure)
 
 # Support Vector Machine (SVM)
-st.button("Show SVM Results")
-if st.button:
+if st.button("Show SVM Results"):
+    # Clear previous plots
+    plt.clf()
+    
     svm_classifier = SVC(random_state=42)
     svm_classifier.fit(X_train, y_train.values.ravel())
     y_pred_svm = svm_classifier.predict(X_test)
@@ -65,8 +68,10 @@ if st.button:
     st.pyplot(sns.heatmap(conf_matrix_svm, annot=True, fmt='d', cmap='Blues').figure)
 
 # K-Nearest Neighbors (KNN)
-st.button("Show KNN Results")
-if st.button:
+if st.button("Show KNN Results"):
+    # Clear previous plots
+    plt.clf()
+    
     knn_classifier = KNeighborsClassifier()
     knn_classifier.fit(X_train, y_train.values.ravel())
     y_pred_knn = knn_classifier.predict(X_test)
