@@ -19,9 +19,12 @@ y = glass_identification.data.targets
 # EDA Graph
 st.title("EDA Graph")
 
+# Convert target variable to Pandas Series
+y_series = pd.Series(y, name="Glass Type")
+
 # Bar graph showing the frequency of glass types
 eda_fig, ax = plt.subplots()
-sns.countplot(x=y, ax=ax)
+sns.countplot(x=y_series, ax=ax)
 ax.set_title("Frequency of Glass Types")
 ax.set_xlabel("Glass Type")
 ax.set_ylabel("Frequency")
