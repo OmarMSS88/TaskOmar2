@@ -20,7 +20,7 @@ y = glass_identification.data.targets
 st.title("EDA Graph")
 
 # Convert target variable to Pandas Series
-y_series = pd.Series(y, name="Glass Type")
+y_series = pd.Series(y.values.ravel(), name="Glass Type")
 
 # Bar graph showing the frequency of glass types
 eda_fig, ax = plt.subplots()
@@ -29,6 +29,7 @@ ax.set_title("Frequency of Glass Types")
 ax.set_xlabel("Glass Type")
 ax.set_ylabel("Frequency")
 st.pyplot(eda_fig)
+
 
 # Train-test split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
