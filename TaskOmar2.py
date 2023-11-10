@@ -83,3 +83,4 @@ if st.button("Show KNN Results"):
     st.write("Confusion Matrix:")
     st.write(conf_matrix_knn)
     st.pyplot(sns.heatmap(conf_matrix_knn, annot=True, fmt='d', cmap='Blues').figure)
+st.warning("Note: In the confusion matrices, the x-axis represents predicted results, and the y-axis represents actual results.")
